@@ -1,9 +1,10 @@
 import {Router} from "express";
-import {homeHandler} from "../handlers";
+import {searchHandler} from "../handlers";
 
 // a router is a collection of routes that can have their own middleware chain. It is helpful to create routers for
 // a collection of related routes for better organisation and specific logic.
 const router = Router();
-router.get("/", homeHandler);
+router.get("/", searchHandler);
+
 
 export default router;

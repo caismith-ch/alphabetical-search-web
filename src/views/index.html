@@ -1,5 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="govuk-heading-xl">Hello World</h1>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+            Alphabetical company search
+        </h1>
+        <p class="govuk-body">
+            Search the register and get alphabetical results
+        </p>
+        <form action="search-results-exact" method="POST">
+        {{ govukInput({
+            label: {
+                text: "Company name"
+            },
+            id: "company-name",
+            name: "company-name"
+            }) }}
+        {{ govukButton({
+            text: "Search"
+        }) }}
+        </form>
+    </div>
+</div>
 {% endblock %}

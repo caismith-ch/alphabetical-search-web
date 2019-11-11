@@ -1,8 +1,14 @@
 {% extends "govuk/template.njk" %}
 
-{% block head %}
-<!--[if !IE 8]><!-->
-<link rel="stylesheet" type="text/css" media="all" href="{{ CSS_URL }}" />
-<!--<![endif]-->
+{% from "govuk/components/button/macro.njk"           import govukButton %}
+{% from "govuk/components/input/macro.njk"            import govukInput %}
 
+{% block head %}
+    <!--[if !IE 8]><!-->
+    <link rel="stylesheet" type="text/css" media="all" href="{{ CSS_URL }}" />
+    <!--<![endif]-->
+{% endblock %}
+
+{% block pageTitle %}
+    Alphabetical company search
 {% endblock %}
