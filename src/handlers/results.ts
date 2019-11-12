@@ -4,16 +4,22 @@ const request = require('request');
 // TODO change to alphabetical search url
 const basePath: string = "http://localhost:8080/movies/";
 
-export default (req: Request, res: Response) => {
+export default (req: Request, resp: Response) => {
     let companyName: string = req.query["company-name"];
 
     request(basePath + companyName, {json: true}, (err, res, body) => {
         if (err) { return console.log(err); }
-            console.log(body);
-            // TODO will be needed to sift through the objects
-            // body.forEach(element => {
-            //     console.log(element.title);
-            // });
+
+        let titlesList = new Array;
+            body.forEach(element => {
+                console.log(element.title);
+                titlesList.push(element.title)
+            });
+
+            var data = {
+                titlesList
+            }
+            console.log(data)
+            resp.render("results", data);
     });
-    res.render("test");
   };
